@@ -11,21 +11,17 @@ const Contact = () => {
     e.preventDefault();
 
     emailjs
-      .sendForm(
-        "service_sctlpnf",
-        "template_t13nt79",
-        form.current,
-        "9TvmtH4EGx1HEcsip"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          console.log("message sent");
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+    .sendForm('service_sctlpnf', 'template_t13nt79', form.current, {
+      publicKey: '9TvmtH4EGx1HEcsip',
+    })
+    .then(
+      () => {
+        console.log('SUCCESS!');
+      },
+      (error) => {
+        console.log('FAILED...', error.text);
+      },
+    );
   };
   return (
     <>
