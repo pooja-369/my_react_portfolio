@@ -27,7 +27,7 @@ function AboutMe() {
   </div>
 
 {/* right section */}
-  <div className=' lg:w-1/2 order-2 md:pb-0 pb-10 '>
+  <div className=' lg:w-1/2 order-2 md:pb-0 pb-10 px-3 md:px-0 '>
 
 <div className='flex  items-center gap-3 lg:justify-start justify-center'>
 <div className='border-2 rounded-lg p-5 py-7  bg-gradient-to-br from-indigo-300 to-indigo-900 animate-pulse w-1/3 '>
