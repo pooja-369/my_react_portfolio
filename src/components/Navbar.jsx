@@ -28,7 +28,7 @@ function NavbarSection() {
             <div className="md:px-12 py-4 px-7 pr-7 lg:flex justify-between items-center bg-slate-950 text-white shadow-md " >
 
                 {/* logo here */}
-                <div className='flex md:text-3xl cursor-pointer items-center gap-2 text-1xl '>
+                <div className='flex md:text-3xl cursor-pointer items-center gap-2 text-2xl '>
                     {/* <BeakerIcon className='w-7 h-7 text-blue-600'/> */}
                     <HashLink smooth to="#HeroSection">
                     <span className='font-bold  text-blue-500'><>&#60;</><span className=' text-white'>pooja</span>/<span className='text-white'>goyal</span><>&#62;</></span>
