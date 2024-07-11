@@ -11,6 +11,7 @@ import Projects from './components/Projects'
 import Footer from './components/Footer'
 import Contact from './components/Contact'
 import Others from './components/Other'
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
     <Router>
        <NavbarSection/>
            <Routes>
-             <Route path="#HeroSection" element={<HeroSection/>} />
+             <Route path="#HeroSection" element={<HeroSection/>}  className="bg-red-500"/>
              <Route path="#EducationSection" element={<EducationSection />} />
              <Route path="#AboutUs" element={<AboutMe/>}/>
              <Route path="#ExperienceSection" element={<ExperienceSection />} />
@@ -31,15 +32,15 @@ function App() {
 
            </Routes>
        </Router>
-  <HeroSection id="HeroSection"/>
+  <HeroSection id="HeroSection" />
   <AboutMe id="AboutUs"/>
-  <SkillSection id="SkillsSection" />
+  <SkillSection id="SkillsSection"/>
 
-  <Projects id="Projects"/>
+  <Projects id="Projects" />
   <ExperienceSection id="ExperienceSection"/>
-  <Others/>
-  <EducationSection id="ExperienceSection"/>
-  <Contact/>
+  <Others ref={Others}/>
+  <EducationSection id="EducationSection" />
+  <Contact />
   <Footer className="bg-black"/>
     {/* <Particle/> */}
 

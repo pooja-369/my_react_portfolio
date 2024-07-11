@@ -4,10 +4,9 @@ import{FiUsers} from 'react-icons/fi'
 import{VscFolderLibrary} from 'react-icons/vsc'
 function AboutMe() {
   return (
-    <section id="AboutUs">
+    <section id="AboutUs" className='mt-10 pt-10' >
 <div className='md:py-10 '>
     <div className='flex justify-center md:text-5xl text-3xl font-bold md:leading-15'>About Us </div>
-      <div className='flex justify-center text-lg py-5 z-20 text-center px-5'>My education has been a journey of self-discovery and growth. My educational details are as follows.</div>
     </div>
 <div className=' w-4/5 m-auto flex gap-5 items-center md:px-10 py-3 md:py-10 px-7 pr-7  flex-col lg:flex-row lg:justify-between'>
 {/* left section */}

@@ -3,15 +3,19 @@ import { useState } from 'react'
 import { HashLink } from 'react-router-hash-link';
 
 
+
 function NavbarSection() {
+
+  
+
     let Links = [
         // { name: 'Home', links: '#HeroSection' },
-        { name: 'Skills', links: '#SkillsSection' },
-        {name:'AboutUs' , links:'#AboutUs'},
-        { name: 'Experience', links: '#ExperienceSection' },
-        { name: 'Projects', links: '#Projects' },
-        { name: 'Education', links: '#EducationSection' },
-        {name:'Contact' , links:'#contact'}
+        { name: 'Skills', links: '#SkillsSection' , section:'Skill'},
+        {name:'AboutUs' , links:'#AboutUs', section:'Aboutus'},
+        { name: 'Experience', links: '#ExperienceSection',section:'Project' },
+        { name: 'Projects', links: '#Projects',section:'Experience' },
+        { name: 'Education', links: '#EducationSection' ,section:'Education'},
+        {name:'Contact' , links:'#contact', section:'Contactus'}
     ]
 
     let [isOpen, setOpen] = useState(false)
@@ -22,7 +26,9 @@ function NavbarSection() {
                 {/* logo here */}
                 <div className='flex md:text-3xl cursor-pointer items-center gap-2 text-1xl '>
                     {/* <BeakerIcon className='w-7 h-7 text-blue-600'/> */}
+                    <HashLink smooth to="#HeroSection">
                     <span className='font-bold  text-blue-500'><>&#60;</><span className=' text-white'>pooja</span>/<span className='text-white'>goyal</span><>&#62;</></span>
+                    </HashLink>
                 </div>
 
                 {/* mobile icons */}
@@ -40,8 +46,15 @@ function NavbarSection() {
                 ${isOpen ? 'top-[3.6rem]  m-auto left-0' : 'top-[-490px]  left-0'}
                 `}>
                     {Links.map(link => (
-                        <li key={link.source} className='my-7 lg:my-0 lg:ml-8 '>
-                            <HashLink smooth to={link.links} className="text-white hover:text-gray-300">
+                        <li key={link.source} className='my-7 lg:my-0 lg:ml-8 ' 
+                        >
+                            <HashLink smooth
+                            offset={1500} 
+                            duration={500}
+                           inline="nearest"
+                           block="start"
+                            // scroll={(el) => el.scrollIntoView({ offset: '1500', duration: '500' })}
+                         to={link.links} className="text-white hover:text-gray-300">
                                 {link.name}
                             </HashLink>
 
