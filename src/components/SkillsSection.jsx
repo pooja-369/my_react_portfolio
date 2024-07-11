@@ -5,9 +5,9 @@ const Example = () => {
 
  
   return (
-    <section  id="SkillsSection">
+    <section  id="SkillsSection" >
     {/* <div className="bg-gradient-to-br from-slate-900 to-violet-900 px-4 py-12" > */}
-     <div>
+     <div >
     <div className='flex justify-center md:text-5xl text-3xl font-bold md:leading-15 md:pt-9'>Skills</div>
       <div className='flex justify-center text-lg py-5 px-5 text-center'>Here are some of my skills on which I have been working on for the past 3 years</div>
     </div>

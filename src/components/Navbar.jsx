@@ -5,7 +5,11 @@ import { HashLink } from 'react-router-hash-link';
 
 
 function NavbarSection() {
-
+    const scrollWithOffset = (el) => {
+        const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+        const yOffset = -80; 
+        window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' }); 
+    }
   
 
     let Links = [
@@ -49,11 +53,7 @@ function NavbarSection() {
                         <li key={link.source} className='my-7 lg:my-0 lg:ml-8 ' 
                         >
                             <HashLink smooth
-                            offset={1500} 
-                            duration={500}
-                           inline="nearest"
-                           block="start"
-                            // scroll={(el) => el.scrollIntoView({ offset: '1500', duration: '500' })}
+                            scroll={el => scrollWithOffset(el)}
                          to={link.links} className="text-white hover:text-gray-300">
                                 {link.name}
                             </HashLink>
