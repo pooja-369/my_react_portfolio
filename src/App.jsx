@@ -9,7 +9,7 @@ import SkillSection from './components/SkillsSection'
 import ExperienceSection from './components/ExperienceSection'
 import Projects from './components/Projects'
 import Footer from './components/Footer'
-// import Contact from './components/Contact'
+import Contact from './components/Contact'
 import Others from './components/Other'
 import Gallary from './components/Gallary '
 import Example from './components/Example'
@@ -30,7 +30,7 @@ function App() {
              <Route path="#ExperienceSection" element={<ExperienceSection />} />
              <Route path="#SkillsSection" element={<SkillSection />} />
              <Route path="#Projects" element={<Projects/>} />
-             {/* <Route path='#contact' element={<Contact/>}/> */}
+             <Route path='#contact' element={<Contact/>}/>
              
            </Routes>
        </Router>
@@ -42,8 +42,8 @@ function App() {
   <ExperienceSection id="ExperienceSection"/>
   <Others ref={Others}/>
   <EducationSection id="EducationSection" />
-  {/* <Contact /> */}
-  <Example/>
+  <Contact />
+  {/* <Example/> */}
   <Footer className="bg-black"/>
     {/* <Particle/> */}
 
