@@ -30,7 +30,7 @@ function App() {
              <Route path="#ExperienceSection" element={<ExperienceSection />} />
              <Route path="#SkillsSection" element={<SkillSection />} />
              <Route path="#Projects" element={<Projects/>} />
-             <Route path='#contact' element={<Contact/>}/>
+             {/* <Route path='#contact' element={<Contact/>}/> */}
              
            </Routes>
        </Router>
