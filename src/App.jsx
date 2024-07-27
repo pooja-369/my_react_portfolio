@@ -9,8 +9,10 @@ import SkillSection from './components/SkillsSection'
 import ExperienceSection from './components/ExperienceSection'
 import Projects from './components/Projects'
 import Footer from './components/Footer'
-import Contact from './components/Contact'
+// import Contact from './components/Contact'
 import Others from './components/Other'
+import Gallary from './components/Gallary '
+import Example from './components/Example'
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -22,25 +24,26 @@ function App() {
     <Router>
        <NavbarSection/>
            <Routes>
-             <Route path="#HeroSection" element={<HeroSection/>}  className="bg-red-500"/>
+             <Route path="#HeroSection" element={<HeroSection/>}/>
              <Route path="#EducationSection" element={<EducationSection />} />
              <Route path="#AboutUs" element={<AboutMe/>}/>
              <Route path="#ExperienceSection" element={<ExperienceSection />} />
              <Route path="#SkillsSection" element={<SkillSection />} />
              <Route path="#Projects" element={<Projects/>} />
              <Route path='#contact' element={<Contact/>}/>
-
+             
            </Routes>
        </Router>
   <HeroSection id="HeroSection" />
   <AboutMe id="AboutUs"/>
   <SkillSection id="SkillsSection"/>
-
+  <Gallary/>
   <Projects id="Projects" />
   <ExperienceSection id="ExperienceSection"/>
   <Others ref={Others}/>
   <EducationSection id="EducationSection" />
-  <Contact />
+  {/* <Contact /> */}
+  <Example/>
   <Footer className="bg-black"/>
     {/* <Particle/> */}
 
