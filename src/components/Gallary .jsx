@@ -43,13 +43,14 @@ function Gallary () {
     }
   return (
     <>
-     <h1 className="text-[3rem] font-bold underline mb-[2rem] text-center ">
-          Cover Flow
-        </h1>
+      <div className='py-10'>
+    <div className='flex justify-center md:text-5xl text-3xl font-bold md:leading-15'>Gallary</div>
+      <div className='flex justify-center text-lg py-5 z-20 text-center px-5'>My Gallary has been a journey of self-discovery and growth. My work details are as follows.</div>
+    </div>
 
-   <div className='flex justify-center gap-10'>
-    <button onClick={chooseCategory}>Designs</button>
-    <button onClick={chooseAnotherCategory}>Logo</button>
+   <div className='flex justify-center gap-10 mb-5 transition duration-500 ease-in '>
+    <button onClick={chooseCategory} className='px-5 py-2  mt-5 hover:bg-red text-black transition duration-500 bg-white text-sm rounded-lg '>Designs</button>
+    <button onClick={chooseAnotherCategory} className='py-2  px-5 mt-5 hover:bg-red text-black transition duration-500 bg-white text-sm rounded-lg'>Logo</button>
    </div>
 
      <Swiper 
@@ -75,11 +76,16 @@ function Gallary () {
         clickable:true ,
     }}
      modules={[EffectCoverflow,Pagination,Navigation]}
-     className="pt-[1rem] pb-[2rem] lg:mx-auto max-w-6xl mx-[1.5rem]"
+     className="pt-[1rem] pb-[2rem] lg:mx-auto max-w-6xl md:mx-[1.5rem]"
      >
      {category.map(link=>(
-        <SwiperSlide key={link.name}>
-            <img src={link} alt={link.name} />
+        <SwiperSlide key={link.name}
+        className='min-h-80 h-auto min-w-64 w-full'
+        >
+            <img  src={link} alt={link.name} 
+             className =' h-auto min-w-64 w-full' 
+              
+             />
         </SwiperSlide>
      ))}
 

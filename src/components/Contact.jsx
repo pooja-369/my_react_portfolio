@@ -1,30 +1,29 @@
-import { useRef } from "react";
-import emailjs from "@emailjs/browser";
+import {useForm} from 'react-hook-form'
 import { Typography, Box, Container, createTheme } from "@mui/material";
 let theme = createTheme();
 
 
   
 const Contact = () => {
-  const form = useRef();
-  const sendEmail = (e) => {
-    e.preventDefault();
 
-    emailjs
-    .sendForm('service_w9f4y0c', 'template_vic3p4l', form.current, {
-      publicKey: 'TEOrddwN7sX1Hljqy',
-    })
-    .then(
-      () => {
-        console.log('SUCCESS!');
-      },
-      (error) => {
-        console.log('FAILED...', error.text);
-      },
-    );
-  };
+
+  const {
+    register,
+    trigger,   //validation
+    formState:{errors}   //errors
+} =useForm();
+
+
+const onSubmit=async(e)=>{
+    const isValid=await trigger();
+
+    if(!isValid){
+        e.preventDefault(); //move to next page
+    }
+}
+
   return (
-    <>
+    <section  id='contact' className='py-48'>
       <Container maxWidth="lg" style={{ marginTop: "50px" }} id="contact"  >
      
     <div className='py-10'>
@@ -48,7 +47,11 @@ const Contact = () => {
             }
           }}
         >
-          <form ref={form} onSubmit={sendEmail}>
+          <form 
+            target="_blank"
+            onSubmit={onSubmit}
+            action="https://formsubmit.co/435131b75d0b2f4558ec509ada1859e3"
+            method="POST">
             <Typography
               sx={{
                 display: "flex",
@@ -61,17 +64,21 @@ const Contact = () => {
                 Name
               </label>
               <input
-                type="text"
-                name="user_name"
-                style={{
-                  // width: "100%",
-                  color:"black",
-                  height: "35px",
-                  padding: "7px",
-                  outline: "none",
-                  borderRadius: "5px"
-                }}
-              />
+              className="w-full bg-blue font-semibold placeholder-opaque-black p-3"
+              type="text"
+              placeholder="NAME"
+              {...register("name", {
+                required: true,
+                maxLength: 100,
+              })}
+            />
+            {errors.name && (
+              <p className="text-red mt-1">
+                {errors.name.type === "required" && "This field is required."}
+                {errors.name.type === "maxLength" && "Max length is 100 char."}
+              </p>
+            )}
+
             </Typography>
             <Typography
               sx={{
@@ -89,16 +96,21 @@ const Contact = () => {
                 Email
               </label>
               <input
-                type="email"
-                name="user_email"
-                style={{
-                  color:'black',
-                  height: "35px",
-                  padding: "7px",
-                  outline: "none",
-                  borderRadius: "5px"
-                }}
-              />
+              className="w-full bg-blue font-semibold placeholder-opaque-black p-3 mt-5"
+              type="text"
+              placeholder="EMAIL"
+              {...register("email", {
+                required: true,
+                pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              })}
+            />
+            {errors.email && (
+              <p className="text-red mt-1">
+                {errors.email.type === "required" && "This field is required."}
+                {errors.email.type === "pattern" && "Invalid email address."}
+              </p>
+            )}
+
             </Typography>
             <Typography
               sx={{
@@ -114,19 +126,24 @@ const Contact = () => {
                 Message
               </label>
               <textarea
-                name="message"
-                style={{
-                    color:'black',
-                  maxWidth: "100%",
-                  minWidth: "90%",
-                  width: "auto",
-                  padding: "7px",
-                  outline: "none",
-                  minHeight: "100PX",
-                  maxHeight: "100px",
-                  borderRadius: "5px"
-                }}
-              />
+              className="w-full bg-blue font-semibold placeholder-opaque-black p-3 mt-5 text-black font-semibold"
+              name="message"
+              placeholder="MESSAGE"
+              rows="4"
+              cols="50"
+              {...register("message", {
+                required: true,
+                maxLength: 2000,
+              })}
+            />
+            {errors.message && (
+              <p className="text-red mt-1">
+                {errors.message.type === "required" &&
+                  "This field is required."}
+                {errors.message.type === "maxLength" &&
+                  "Max length is 2000 char."}
+              </p>
+            )}
             </Typography>
             <Typography
               sx={{
@@ -137,23 +154,17 @@ const Contact = () => {
                 height: 100
               }}
             >
-              <input
-                type="submit"
-                value="Send"
-                style={{
-                  background:'white',
-                  color:'black',
-                  height: 40,
-                  padding: "7px",
-                  outline: "none",
-                  borderRadius: "5px"
-                }}
-              />
+             <button
+              className="p-2  mt-5 hover:bg-red text-black transition duration-500 bg-white text-sm rounded-lg w-full"
+              type="submit"
+            >
+              Submit
+            </button>
             </Typography>
           </form>
         </Box>
       </Container>
-    </>
+    </section>
   );
 };
 export default Contact;

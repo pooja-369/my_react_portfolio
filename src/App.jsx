@@ -12,7 +12,7 @@ import Footer from './components/Footer'
 import Contact from './components/Contact'
 import Others from './components/Other'
 import Gallary from './components/Gallary '
-import Example from './components/Example'
+// import Example from './components/Example'
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
