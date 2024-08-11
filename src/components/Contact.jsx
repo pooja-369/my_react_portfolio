@@ -1,5 +1,6 @@
 import {useForm} from 'react-hook-form'
 import { Typography, Box, Container, createTheme } from "@mui/material";
+import {motion} from 'framer-motion'
 let theme = createTheme();
 
 
@@ -23,15 +24,32 @@ const onSubmit=async(e)=>{
 }
 
   return (
-    <section  id='contact' className='py-48'>
-      <Container maxWidth="lg" style={{ marginTop: "50px" }} id="contact"  >
-     
+    <section  id='contact' className='py-8'>
+
+      <Container maxWidth="lg"  id="contact"  >
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+         transition={{ duration: 0.5 }}
+        variants={{
+          hidden: { opacity: 0, x:-50},
+          visible: { opacity: 1,x:0 },
+}}>
     <div className='py-10'>
     <div className='flex justify-center md:text-5xl text-3xl font-bold md:leading-15'>Contact Us </div>
       <div className='flex justify-center text-lg pt-5 z-20 text-center px-5'>My education has been a journey of self-discovery and growth. My educational details are as follows.</div>
     </div>
-
-
+</motion.div>
+    <motion.div
+        className="md:w-1/3 text-center md:text-left m-auto"
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.5 }}
+        variants={{
+          hidden: { opacity: 0, x:-50},
+          visible: { opacity: 1,x:0 },
+}}
+      >
         <Box
           sx={{
             margin: "auto",
@@ -163,7 +181,9 @@ const onSubmit=async(e)=>{
             </Typography>
           </form>
         </Box>
+        </motion.div>
       </Container>
+  
     </section>
   );
 };

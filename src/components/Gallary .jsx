@@ -14,6 +14,7 @@ import Image4 from '../assets/image4.jpeg'
 import Image5 from '../assets/communication2.jpeg'
 import Image6 from '../assets/Project-management.jpg'
 import { useState } from 'react';
+import {motion} from 'framer-motion'
 
 
 function Gallary () {
@@ -43,9 +44,19 @@ function Gallary () {
     }
   return (
     <>
+             <motion.div
+        className=" text-center"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.8}}
+        variants={{
+          hidden: { opacity: 0, x: -150 },
+          visible: { opacity: 1, y: 0, x:0 },
+}}>
       <div className='py-10'>
     <div className='flex justify-center md:text-5xl text-3xl font-bold md:leading-15'>Gallary</div>
-      <div className='flex justify-center text-lg py-5 z-20 text-center px-5'>My Gallary has been a journey of self-discovery and growth. My work details are as follows.</div>
+      <div className='flex justify-center text-lg pt-5 z-20 text-center px-5'>My Gallary has been a journey of self-discovery and growth. My work details are as follows.</div>
     </div>
 
    <div className='flex justify-center gap-10 mb-5 transition duration-500 ease-in '>
@@ -105,6 +116,7 @@ function Gallary () {
         </div>
 
      </Swiper>
+     </motion.div>
     </>
   )
 }

@@ -1,11 +1,13 @@
 import Frontend from "./skillscard/Frontent";
 import Others from "./skillscard/Others";
 import Backend from './skillscard/Backend'
+
 const Example = () => {
 
  
   return (
     <section  id="SkillsSection" >
+
     {/* <div className="bg-gradient-to-br from-slate-900 to-violet-900 px-4 py-12" > */}
      <div >
     <div className='flex justify-center md:text-5xl text-3xl font-bold md:leading-15 md:pt-9'>Skills</div>
@@ -15,11 +17,9 @@ const Example = () => {
       <Frontend  />
       <Backend/>
      <Others/>
-
-   
     </div>
     {/* </div> */}
-    </section>
+        </section>
   );
 };
 

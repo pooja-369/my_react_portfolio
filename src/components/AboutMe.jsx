@@ -2,9 +2,19 @@ import myImage from '../assets/beautiful-girl-photo_13.jpg'
 import{FaAward} from 'react-icons/fa'
 import{FiUsers} from 'react-icons/fi'
 import{VscFolderLibrary} from 'react-icons/vsc'
+import {motion} from 'framer-motion'
 function AboutMe() {
   return (
     <section id="AboutUs" className='px-4 ' >
+         <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.5 }}
+        variants={{
+          hidden: { opacity: 0, x: -150 },
+          visible: { opacity: 1, y: 0, x:0 },
+}}>
 <div className='md:py-10 '>
     <div className='flex justify-center md:text-5xl text-3xl font-bold md:leading-15'>About Us </div>
     </div>
@@ -66,6 +76,7 @@ function AboutMe() {
 
   </div>
 </div>
+</motion.div>
     </section>
   )
 }

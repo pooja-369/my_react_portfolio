@@ -40,7 +40,7 @@ function App() {
   <Gallary/>
   <Projects id="Projects" />
   <ExperienceSection id="ExperienceSection"/>
-  <Others ref={Others}/>
+  {/* <Others ref={Others}/> */}
   <EducationSection id="EducationSection" />
   <Contact />
   {/* <Example/> */}
